@@ -26,7 +26,7 @@
         <p>Remind me to change picture</p>
     </main>
     <footer>
-        <p>&copy; 202X alexander.com</p>
+        <p>&copy; <?php echo date("Y"); ?> alexander.com</p>
     </footer>
 </div>
 </body>
