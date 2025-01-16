@@ -22,7 +22,7 @@
         </ul>
     </nav>
     <main>
-        <img src="img/notreal.jpg" width="300px" alt="totally me">
+        <img src="img/notreal.jpg" width="500px" alt="totally me">
         <p>Remind me to change picture</p>
     </main>
     <footer>
