@@ -18,7 +18,7 @@
             <li><a href="#">Home</a></li>
             <li><a href="#">Countdown</a></li>
             <li><a href="#">Loops</a></li>
-            <li><a href="#">4</a></li>
+            <li><a href="#">Week 4</a></li>
         </ul>
     </nav>
     <main>
