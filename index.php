@@ -11,22 +11,17 @@
 <body>
 <div id="wrapper">
     <header>
-        <h1>PHP Class - 1/22/2025</h1>
+        <?php include 'includes/header.php'; ?>
     </header>
     <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Countdown</a></li>
-            <li><a href="#">Loops</a></li>
-            <li><a href="#">Week 4</a></li>
-        </ul>
+        <?php include 'includes/nav.php'; ?>
     </nav>
     <main>
         <img src="img/notreal.jpg" width="500px" alt="totally me">
         <p>Remind me to change picture</p>
     </main>
     <footer>
-        <p>&copy; <?php echo date("Y"); ?> alexander.com</p>
+        <?php include 'includes/footer.php'; ?>
     </footer>
 </div>
 </body>
