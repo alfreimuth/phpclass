@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,7 +17,57 @@
         <?php include '../includes/nav.php'; ?>
     </nav>
     <main>
-<h3>HI</h3>
+        <?php
+
+            $num1 = "<h3>";
+            $num1 .= 100;
+            $num1 .= "</h3>";
+
+            echo $num1;
+
+            $i = 1;
+
+            while($i<7) {
+                echo "<h$i>Hello World</h$i>";
+                $i++;
+            }
+
+            $i = 6;
+
+            while($i>0){
+                echo "<h$i>Hello World</h$i>";
+                $i--;
+            }
+
+            for ($i=1;$i<7;$i++){
+                echo "<h$i>Hello World</h$i>";
+            }
+
+            echo "<br /><br /><hr /><br />";
+
+            $Full_Name = "Doug Smith";
+            $Position = strpos($Full_Name, ' ');
+            echo $Position;
+
+            echo "<br /><br /><hr /><br />";
+
+            $stuff = "My Strff";
+            echo "<h3>$stuff</h3>";
+
+            echo "<br /><br /><hr /><br />";
+
+            echo strtoupper($Full_Name) . "<br />";
+            echo strtolower($Full_Name) . "<br />";
+            echo $Full_Name;
+
+            echo "<br /><br /><hr /><br />";
+
+            $nameParts = explode(' ', $Full_Name);
+            echo $nameParts[0] . "<br /><br />";
+            echo $nameParts[1];
+
+            echo "<br /><br /><hr /><br />";
+        ?>
     </main>
     <footer>
         <?php include '../includes/footer.php'; ?>

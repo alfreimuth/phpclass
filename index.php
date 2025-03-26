@@ -18,7 +18,8 @@
     </nav>
     <main>
         <img src="img/notreal.jpg" width="500px" alt="totally me">
-        <p>Remind me to change picture</p>
+        <p>Hey there! <br>I am a CompSci student at Fox Valley Technical College. I love to do silly things such as play the piano/banjo,
+        pet my dogs, and sleep. On top of that, this picture isnt even real!</p>
     </main>
     <footer>
         <?php include 'includes/footer.php'; ?>
