@@ -1,21 +1,76 @@
 <?php
 session_start();
-$err = '';
 
-$key = sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+$MemberKey = sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
 
-echo md5('password');
+
+
+$err="";
+if(!isset($_SESSION["UID"])){
+    header("Location: index.php");
+}
+
+if(isset($_POST["btnSubmit"])){
+
+    if(!empty($_POST["txtUsername"])) {
+        $Username = $_POST["txtUsername"];
+    }else{
+        $err="Username Error";
+    }
+    if(!empty($_POST["txtPassword"])) {
+        $Password = $_POST["txtPassword"];
+    }else{
+        $err="Password Error";
+    }
+    if(!empty($_POST["txtPassword2"])) {
+        $Password2 = $_POST["txtPassword2"];
+    }else{
+        $Password2 = "";
+    }
+    if($Password != $Password2){
+        $err = "Password Do Not Match";
+    }
+    if(!empty($_POST["txtRole"])) {
+        $Role = $_POST["txtRole"];
+    }else{
+        $err="Role Error";
+    }
+    if(!empty($_POST["txtEmail"])) {
+        $Email = $_POST["txtEmail"];
+    }else{
+        $err="Email Error";
+    }
+
+    if($err==""){
+
+        include "../includes/db.php";
+
+        $hashedPWD = md5($Password . $MemberKey);
+
+        $sql = mysqli_prepare($con, "insert into memberLogin (memberName, memberEmail, memberPassword, roleID, memberKey) values (?,?,?,?,?)");
+        mysqli_stmt_bind_param($sql, "sssis", $Username,$Email,$hashedPWD, $Role, $MemberKey);
+        mysqli_stmt_execute($sql);
+
+        $Username="";
+        $Password="";
+        $Password2="";
+        $Email="";
+
+        $err="Member Added to Database";
+    }
+}
+
+
+
+
+
+//
+
+
 //exit();
 
 
-//if (!isset($_SESSION["UID"])) {
-//    header("Location: index.php");
-//}
 
-//if (isset($_POST["btnSubmit"])) {
- //   if (!empty($_POST["txtUsername"])) {
- //   }
-//}
 
 ?>
 <!doctype html>
@@ -78,17 +133,17 @@ echo md5('password');
 </nav>
 <main>
 
-    <h3 id="err"><?=$msg?></h3>
+    <h3 id="err"><?=$err?></h3>
 
     <form method="post">
         <div class="gc">
             <div class="item1"><h3>Add New Member</h3></div>
             <div class="item2">Username</div>
-            <div class="item3"><input type="text" name="txtUsername" id="txtUsername" /></div>
+            <div class="item3"><input type="text" name="txtUsername" id="txtUsername" value="<?=$Username?>"/></div>
             <div class="item4">Password</div>
-            <div class="item5"><input type="password" name="txtPassword" id="txtPassword"/></div>
+            <div class="item5"><input type="password" name="txtPassword" id="txtPassword" value="<?=$Password?>"/></div>
             <div class="item6">ReType Password</div>
-            <div class="item7"><input type="password" name="txtPassword2" id="txtPassword2"/></div>
+            <div class="item7"><input type="password" name="txtPassword2" id="txtPassword2" value="<?=$Password2?>"/></div>
             <div class="item8">Role</div>
             <div class="item9">
                 <select name="txtRole" id="txtRole">
@@ -98,8 +153,8 @@ echo md5('password');
                 </select>
             </div>
             <div class="item10">Email</div>
-            <div class="item11"><input type="text" name="txtEmail" id="txtEmail"/></div>
-            <div class="item12"><input type="submit" value="Login"/></div>
+            <div class="item11"><input type="text" name="txtEmail" id="txtEmail" value="<?=$Email?>"/></div>
+            <div class="item12"><input type="submit" value="Create New User" name="btnSubmit"/></div>
         </div>
     </form>
 </main>
