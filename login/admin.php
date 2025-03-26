@@ -6,7 +6,7 @@ $MemberKey = sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), 
 
 
 $err="";
-if(!isset($_SESSION["UID"])){
+if($_SESSION["roleID"]!=1){
     header("Location: index.php");
 }
 
@@ -60,18 +60,6 @@ if(isset($_POST["btnSubmit"])){
     }
 }
 
-
-
-
-
-//
-
-
-//exit();
-
-
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -118,7 +106,7 @@ if(isset($_POST["btnSubmit"])){
     div{
         border: 1px solid;
         text-align: center;
-        padding: 10px 0;
+        padding: 15px 0;
         font-size: 20px;
 
     }
@@ -132,7 +120,7 @@ if(isset($_POST["btnSubmit"])){
     <?php include '../includes/nav.php'; ?>
 </nav>
 <main>
-
+    <h2>Admin Page</h2>
     <h3 id="err"><?=$err?></h3>
 
     <form method="post">

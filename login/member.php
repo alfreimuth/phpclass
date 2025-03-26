@@ -1,3 +1,11 @@
+<?php
+
+if(isset($_SESSION["roleID"])){
+    header("Location: index.php");
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,7 +24,7 @@
         <?php include '../includes/nav.php'; ?>
     </nav>
     <main>
-        <h1>Member</h1>
+        <h2>Member Page</h2>
     </main>
     <footer>
         <?php include '../includes/footer.php'; ?>
