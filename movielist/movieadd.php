@@ -41,6 +41,7 @@
         .item6 {grid-area: footer}
 
         .gc{
+            margin-top: 50px;
             display: grid;
             grid-template-areas:
             'header header'
@@ -48,13 +49,14 @@
             'MovieRating RatingInput'
             'footer footer'
             ;
-            padding 0px;
+            padding 0;
+            border: 0;
         }
 
         div{
-            border: 1px solid;
+            border: 1px solid black;
             text-align: center;
-            padding: 15px 0;
+            padding: 10px 0;
             font-size: 15px;
         }
     </style>

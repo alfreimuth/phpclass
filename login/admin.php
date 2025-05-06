@@ -101,10 +101,11 @@ if(isset($_POST["btnSubmit"])){
     ;
         padding 0px;
         width: 60%;
+        border: 0;
     }
 
-    div{
-        border: 1px solid;
+    div:not(list){
+        border: 1px solid black;
         text-align: center;
         padding: 15px 0;
         font-size: 20px;

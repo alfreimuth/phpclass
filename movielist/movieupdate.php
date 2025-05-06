@@ -91,7 +91,8 @@ if (isset($_GET["id"])) {
             'MovieTitle TitleInput'
             'MovieRating RatingInput'
             'footer footer';
-            padding 0px;
+            padding 0;
+            border: 0;
         }
 
         div {
