@@ -69,7 +69,8 @@ if(!empty($_POST["txtEmail"])){
             'Password PasswordInput'
             'footer footer'
         ;
-            padding 0px;
+            padding 0;
+            border: 0;
         }
 
         div{

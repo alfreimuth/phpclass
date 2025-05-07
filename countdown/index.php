@@ -15,12 +15,20 @@ $endOfSchoolSemester = mktime(12, 0, 0, 5, 17, 2025);
 $seconds = $endOfSchoolSemester - $now;
 
 // Years
-$years = floow($seconds/$secPerYear);
-$seconds = seconds - ($years * $secPerYear);
+$years = floor($seconds/$secPerYear);
+$seconds = $seconds - ($years / $secPerYear);
 
 // Days
 $days = floor($seconds/$secPerDay);
-$seconds = $seconds / $secPerDay;
+$seconds = $seconds - ( $seconds/$secPerDay);
+
+// Hours
+$hours = floor($seconds/$secPerHour);
+$seconds = $seconds - ($seconds/$secPerHour);
+
+// Minutes
+$minutes = floor($seconds/$secPerMin);
+$seconds = $seconds - ($seconds/$secPerMin);
 
 ?>
 
@@ -42,7 +50,11 @@ $seconds = $seconds / $secPerDay;
         <?php include '../includes/nav.php'; ?>
     </nav>
     <main>
-        <h1><?=$seconds?></h1>
+        <h1><?=$days?> days</h1>
+        <h2><?=$hours?> hours</h2>
+        <h3><?=$minutes?> minutes</h3>
+        <h4><?=$seconds?> seconds</h4>
+        <h5>Today is <?=date('Y-m-d'); ?></h5>
     </main>
     <footer>
         <?php include '../includes/footer.php'; ?>

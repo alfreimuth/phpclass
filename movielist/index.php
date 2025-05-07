@@ -11,7 +11,7 @@
         table{
             border-width: 1px;
             table-layout: fixed;
-            width: 90%;
+
         }
     </style>
 </head>
@@ -22,7 +22,7 @@
     <nav>
         <?php include '../includes/nav.php'; ?>
     </nav>
-    <a href="movieadd.php ">Add New Movie</a>
+
     <main>
         <h3>My Movie List</h3>
 

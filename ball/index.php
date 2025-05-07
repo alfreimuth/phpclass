@@ -48,14 +48,6 @@ else {
 
 }
 
-
-
-
-
-
-
-
-
 ?>
 
 <!doctype html>
